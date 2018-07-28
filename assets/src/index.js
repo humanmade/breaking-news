@@ -1,6 +1,6 @@
 ( function ( w, d ) {
 
-	var source  = new EventSource( '/breaking-news', { withCredentials: false } ),
+	var source  = new EventSource( '/breaking-news/', { withCredentials: false } ),
 		events  = {};
 
 	source.addEventListener( 'newstory', function ( event ) {
@@ -50,10 +50,12 @@
 				handleHasItems();
 
 				// Remove on expiry.
-				setTimeout( function () {
-					item.parentNode.removeChild( item );
+				setTimeout( function ( item ) {
+					if ( item ) {
+						item.parentNode.removeChild( item );
+					}
 					handleHasItems();
-				}, story.expires - Date.now() );
+				}, story.expires - Date.now(), item );
 			}
 		} );
 

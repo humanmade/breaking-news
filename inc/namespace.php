@@ -55,7 +55,7 @@ function register_cpt() {
 		'menu_position'       => null,
 		'menu_icon'           => 'dashicons-warning',
 		'show_in_nav_menus'   => false,
-		'publicly_queryable'  => true,
+		'publicly_queryable'  => false,
 		'exclude_from_search' => true,
 		'has_archive'         => false,
 		'query_var'           => true,
