@@ -50,12 +50,13 @@
 				handleHasItems();
 
 				// Remove on expiry.
-				setTimeout( function ( item ) {
-					if ( item ) {
-						item.parentNode.removeChild( item );
+				setTimeout( function ( id ) {
+					var remove = d.getElementById( id );
+					if ( remove ) {
+						remove.parentNode.removeChild( remove );
 					}
 					handleHasItems();
-				}, story.expires - Date.now(), item );
+				}, story.expires - Date.now(), item.id );
 			}
 		} );
 

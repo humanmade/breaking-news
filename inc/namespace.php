@@ -79,7 +79,7 @@ function meta_box( WP_Post $post ) {
 
 	add_settings_field( 'expiry', __( 'Expires after', 'breaking-news' ), function () use ( $post ) {
 		$expiry = absint( get_post_meta( $post->ID, 'expiry', true ) ) ?: 45;
-		printf( '<input name="expiry" type="number" step="1" min="5" max="360" value="%d" size="3" /> %s', $expiry, esc_html__( 'minutes', 'breaking-news' ) );
+		printf( '<input name="expiry" type="number" step="1" min="1" max="360" value="%d" size="3" /> %s', $expiry, esc_html__( 'minutes', 'breaking-news' ) );
 	}, 'breaking' );
 
 	add_settings_field( 'link', __( 'Link', 'breaking-news' ), function () use ( $post ) {
