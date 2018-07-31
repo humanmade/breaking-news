@@ -175,7 +175,7 @@ function get_breaking_news() {
 		return [
 			'id'      => $item->ID,
 			'date'    => strtotime( $item->post_date ) * 1000,
-			'title'   => get_the_title( $item->ID ),
+			'title'   => html_entity_decode( get_the_title( $item->ID ) ),
 			'content' => wptexturize( $item->post_content ),
 			'expires' => absint( get_post_meta( $item->ID, 'expiry_time', true ) ) * 1000,
 			'link'    => esc_url_raw( get_post_meta( $item->ID, 'link', true ) ),
